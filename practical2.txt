@@ -1,0 +1,77 @@
+############identification and handling of null values
+None
+NaN  
+
+import pandas as pd
+import numpy as np
+
+df=pd.read_csv(r'C:\Users\Lenovo\Desktop\DSBDA\Iris.csv')
+
+methods
+
+###isnull()  and notnull()  for checking the null values in dataset
+
+df.isnull()
+
+
+to create  a series true for NaN values for specific columns.
+
+series=pd.isnull(df['math score'])
+df[series] 
+
+
+#using notnull method
+
+df.notnull()
+
+#########See that there are also categorical values in the dataset, for this, you need to use
+Label Encoding or One Hot Encoding
+
+ 
+from sklearn.preprocessing import LabelEncoder
+le = LabelEncoder()
+df['Math_Score'] = le.fit_transform(df['Math_Score'])
+newdf=df
+df
+
+#######Filling missing values using dropna(), fillna(), replace()
+
+
+missing_values = ["Na", "na"]
+df = pd.read_csv("StudentsPerformance.csv", na_values =
+missing_values)
+df
+
+######Filling null values with a single value
+
+ndf=df
+ndf.fillna(0)
+
+
+###########filling missing values using mean, median and standard deviation of thatcolumn.
+
+
+df['Math_Score'] = df['Math_Score'].fillna(df['Math_Score'].mean())
+
+
+df[''Math_Score''] = df[''Math_Score''].fillna(df[''Math_Score''].median())
+
+
+df['Math_Score''] = 
+df[''Math_Score''].fillna(df[''Math_Score''].std())
+
+
+########tracking outliers using boxplot
+
+col = ['Math_Score', 'Reading_Score' , 'Writing_Score','Placement_Score']
+df.boxplot(col)
+
+print(np.where(df['Math_Score']>90))   
+
+
+
+
+
+
+
+

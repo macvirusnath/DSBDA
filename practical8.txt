@@ -1,0 +1,15 @@
+import pandas as pandas
+import numpy as numpy
+import matplotlib.pyplot as pyplot
+import seaborn as sns
+dataset = sns.load_dataset('titanic')
+dataset.head()
+# The Dist Plot
+sns.distplot(dataset['fare'],kde=False,bins=10)
+# The Joint Plot
+sns.jointplot(x='age', y='fare', data=dataset, kind='hex')
+#The Rug Plot
+sns.rugplot(dataset['fare'])
+pyplot.show()
+
+

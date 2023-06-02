@@ -1,0 +1,65 @@
+practical 1 data wrangling
+commands for data preprocessing
+
+import pandas as pd
+import numpy as np
+df=pd.read_csv('D:\dsbda dataset\IRIS.csv')    //using these we connect the dataset with the programme
+
+df.head(3)   //first 3 entries form dataset
+df.tail(3)   //first 3 entries form dataset
+
+
+df.sort_index(axis=1,ascending=True)   //sort the rows
+
+df.index   
+
+df.columns
+
+df.columns.values
+
+df.describe(include="all")
+
+df.iloc[3]   //description of the 3rd row
+
+df.iloc[:2,:]     // a subset of first m rows and columns
+
+
+df.iloc[:2,:3]  //a subset of first m rows and n columns
+
+
+checking the missing values in the dataset
+
+df.isnull()
+
+
+df.isnull().any()
+
+df.isnull().sum().sum()
+
+df.isnull().sum(axis=1)
+
+df.types  //checking the types of all the columns
+
+
+
+###############data normalization
+
+
+#Panda functions for Data Formatting and Normalization
+iris = load_iris()
+#create a pandas DataFrame with the iris data
+data = pd.DataFrame(iris.data,
+columns=iris.feature_names)
+#load iris dataset
+print(data.head())
+#unique values for species column
+print(data['sepal width (cm)'].unique())
+# one_hot_data_encoding
+one_hot_data = pd.get_dummies(data, prefix="sepal width (cm)",
+columns=['sepal width (cm)'], drop_first=False)
+print(one_hot_data)
+
+
+
+
+

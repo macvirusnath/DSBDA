@@ -1,0 +1,13 @@
+import pandas as pd
+import seaborn as sns
+df=sns.load_dataset("titanic")
+df
+
+
+
+sns.boxplot(x='age',y='sex',hue='alive',data=df)
+
+sns.boxplot(x='age',hue='alive',data=df)
+
+
+sns.boxplot(x='sex',y='fare',data=df)

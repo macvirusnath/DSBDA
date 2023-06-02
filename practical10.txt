@@ -1,0 +1,24 @@
+use iris dataset for practical 10
+
+import matplotlib.pyplot as plt
+%matplotlib inline
+import seaborn as sns
+fig,axes=plt.subplots(2,2,figsize=(16,8))
+axes[0,0].set_title("distribution of first column")
+axes[0,0].hist(df['sepal_length'])
+axes[0,1].set_title('distribution of the 2nd column')
+axes[0,1].hist(df['sepal_width'])
+axes[1,0].set_title("distribution of 3rd column")
+axes[1,0].hist(df['petal_length'])
+axes[1,1].hist(df['petal_width'])
+
+these will show 4 matrix shape histograms
+
+
+
+#########these will show the boxplots for all the columns 
+data_to_plot=[df["sepal_length"],df["sepal_width"],df["petal_length"],df["petal_width"]]
+sns.set_style("whitegrid")
+fig=plt.figure(1,figsize=(12,8))
+ax=fig.add_subplot(111)
+bp=ax.boxplot(data_to_plot);
